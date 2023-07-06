@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %} Pet Form {% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="display-1 text-center">New Pet Form</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form method="post">
+                {{form.hidden_tag()}}
+                {% include 'form_fields.html' %}
+
+                <button class="btn  btn-success  btn-lg">Submit</button>
+            </form>
+            <a href="/" class="btn btn-md btn-outline-secondary">Back Home</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

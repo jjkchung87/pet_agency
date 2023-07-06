@@ -1,0 +1,12 @@
+{% for field in form if field.widget.input_type != 'hidden' and field.name != 'available' %}
+<div class="form-group">
+    {{ field.label }}
+    {{ field(class_='form-control') }}
+    {% for err in field.errors %}
+        <small class="form-text text-danger">
+            {{ err }}
+        </small>
+    {% endfor %}
+</div>
+{% endfor %}
+

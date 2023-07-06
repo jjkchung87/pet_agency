@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Edit Form {% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="display-1 text-center">Edit Pet</h1>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h1 class="display-5">Hi I'm <b>{{pet.name}}</b> the {{pet.species}}, and I'm {{pet.age}} years old!</h1>            
+        </div>
+        <div class="col-4">
+            <img src="{{pet.photoUrl}}" style="max-width: 100px;">
+        </div>
+        <div class="col-md-8">
+            <form method="POST" action="/{{ pet.id }}">
+                {{ form.hidden_tag() }}
+                {% include 'form_fields.html' %}           
+                <button type="submit" class="btn btn-success btn-lg" formmethod="POST" formaction="/{{ pet.id }}">Submit</button>
+                <a href="/" class="btn btn-outline-secondary btn-lg">Back Home</a>
+            </form>
+            
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

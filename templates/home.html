@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} Pet Agency {% endblock %}
+{% block content %}
+<div class="container">
+    
+    <h1 class="display-1 text-center">Pet Agency</h1>
+    <a href="/add" class="btn btn-sm btn-success">Add New Pet</a>
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <h1 class="display-4">Available</h1>
+            {% for pet in pets if pet.available %}
+            <p class=" lh-1 fs-3 fw-bold">{{pet.name}}</p>
+            <a class="btn btn-sm btn-outline-secondary" href="/{{pet.id}}">edit</a><br>
+            {% if pet.photoUrl %}
+            <img src="{{pet.photoUrl}}" style="max-width:200px"><br>
+            {% endif %}
+            {% endfor %}    
+        </div>
+    
+        
+        <div class="col-5">
+            <h1 class="display-4">Unavailable</h1>
+            {% for pet in pets if not pet.available %}
+            <p class=" lh-1 fs-3 fw-bold">{{pet.name}}</p>
+            <a class="btn btn-sm btn-outline-secondary" href="/{{pet.id}}">edit</a><br>
+            {% if pet.photoUrl %}
+            <img src="{{pet.photoUrl}}" style="max-width:200px"><br>
+            {% endif %}
+            {% endfor %}
+        </div>
+       
+    </div>
+</div>
+
+
+{% endblock %}
